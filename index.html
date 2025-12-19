@@ -3,13 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Watch Ad</title>
+
   <!-- Monetag verification -->
   <meta name="monetag" content="c418652733772764949f61353e354b6a">
+
+  <!-- ✅ Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPS21TF10Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RPS21TF10Q');
+  </script>
+
   <!-- Monetag SDK (Rewarded Interstitial) -->
-  <script src="//libtl.com/sdk.js"
-          data-zone="10349717"
-          data-sdk="show_10349717"></script>
+  <script
+    src="//libtl.com/sdk.js"
+    data-zone="10349717"
+    data-sdk="show_10349717">
+  </script>
+
   <style>
     body {
       margin: 0;
@@ -18,7 +33,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
+
     button {
       padding: 16px 40px;
       font-size: 18px;
@@ -27,25 +44,38 @@
       cursor: pointer;
       background: #6366f1;
       color: #ffffff;
+      transition: transform 0.1s ease, opacity 0.1s ease;
     }
+
+    button:hover {
+      transform: scale(1.02);
+    }
+
     button:active {
       opacity: 0.9;
+      transform: scale(0.98);
     }
   </style>
 </head>
+
 <body>
-  <button onclick="watchAd()">🎬 Watch Ad</button>
+  <button id="watchBtn">🎬 Watch Ad</button>
 
   <script>
     function watchAd() {
-      show_10349717().catch(() => {});
+      if (typeof show_10349717 === "function") {
+        show_10349717().catch(() => {});
+      }
     }
 
-    // পেজ লোড হওয়ার পর অটোমেটিক অ্যাড দেখাবে
-    window.addEventListener('load', function() {
-      setTimeout(function() {
+    // Button click
+    document.getElementById("watchBtn").addEventListener("click", watchAd);
+
+    // Auto show ad after page load (safe delay)
+    window.addEventListener("load", function () {
+      setTimeout(function () {
         watchAd();
-      }, 1000); // 500ms ডিলে — SDK লোড হওয়ার জন্য
+      }, 1000); // SDK load safe delay
     });
   </script>
 </body>
