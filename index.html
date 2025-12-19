@@ -1,90 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Earn by Watching Ads</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Monetag SDK -->
-  <script src='//libtl.com/sdk.js'
-          data-zone='10349717'
-          data-sdk='show_10349717'></script>
+  <title>Earn Options</title>
+
+  <!-- ✅ Monetag Website Verification (ONLY ONCE) -->
+  <meta name="monetag" content="c418652733772764949f61353e354b6a">
+
+  <!-- ✅ Monetag SDK (Rewarded Interstitial + Popup) -->
+  <script src="//libtl.com/sdk.js"
+          data-zone="10349717"
+          data-sdk="show_10349717"></script>
 
   <style>
     body {
       margin: 0;
-      padding: 20px;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #020617, #020617);
       font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #ffffff;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 380px;
+      padding: 25px;
       text-align: center;
     }
+
     h2 {
-      margin-bottom: 10px;
+      margin-bottom: 6px;
+      font-size: 22px;
     }
+
+    p.subtitle {
+      opacity: 0.8;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
     button, a.direct-btn {
       width: 100%;
-      max-width: 320px;
-      padding: 15px;
-      margin: 12px auto;
-      font-size: 16px;
+      padding: 14px;
+      margin: 10px 0;
       border: none;
       border-radius: 10px;
+      font-size: 15px;
       cursor: pointer;
+      color: #fff;
       text-decoration: none;
       display: block;
-      color: #fff;
     }
+
     .btn-interstitial {
       background: #6366f1;
     }
+
     .btn-popup {
       background: #f59e0b;
     }
+
     .btn-direct {
       background: #22c55e;
     }
+
     .note {
-      font-size: 13px;
-      opacity: 0.8;
-      margin-top: 15px;
+      margin-top: 12px;
+      font-size: 12px;
+      opacity: 0.75;
+    }
+
+    /* Blog-style ad box */
+    .ad-box {
+      margin-top: 25px;
+      padding: 14px;
+      background: #020617;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      text-align: left;
+    }
+
+    .ad-label {
+      font-size: 11px;
+      opacity: 0.6;
+      margin-bottom: 6px;
     }
   </style>
 </head>
 
 <body>
 
-  <h2>🎁 Earn Options</h2>
-  <p>Click a button to continue</p>
+  <div class="container">
 
-  <!-- Rewarded Interstitial -->
-  <button class="btn-interstitial" onclick="rewardedInterstitial()">
-    🎬 Watch Ad (Rewarded Interstitial)
-  </button>
+    <h2>🎁 Earn Options</h2>
+    <p class="subtitle">Click a button to continue</p>
 
-  <!-- Rewarded Popup -->
-  <button class="btn-popup" onclick="rewardedPopup()">
-    ⚡ Quick Reward (Popup)
-  </button>
+    <!-- 🎬 Rewarded Interstitial -->
+    <button class="btn-interstitial" onclick="rewardedInterstitial()">
+      🎬 Watch Ad (Rewarded Interstitial)
+    </button>
 
-  <!-- Direct Link -->
-  <a class="direct-btn btn-direct"
-     href="https://otieu.com/4/8731128"
-     target="_blank">
-    🔗 Open Offer (Direct Link)
-  </a>
+    <!-- ⚡ Rewarded Popup -->
+    <button class="btn-popup" onclick="rewardedPopup()">
+      ⚡ Quick Reward (Popup)
+    </button>
 
-  <div class="note">
-    Ads or links open only after your click ✔️
+    <!-- 🔗 Direct Link -->
+    <a class="direct-btn btn-direct"
+       href="https://otieu.com/4/8731128"
+       target="_blank">
+      🔗 Open Offer (Direct Link)
+    </a>
+
+    <div class="note">
+      Ads or links open only after your click ✔️
+    </div>
+
+    <!-- 📢 In-Page / Blog-Style Ad Section -->
+    <div class="ad-box">
+      <div class="ad-label">Sponsored</div>
+
+      <!-- 👉 এখানে তোমার In-Page / Native Banner Zone Script বসাবে -->
+      <!-- Example:
+      <script src="//libtl.com/sdk.js"
+              data-zone="INPAGE_ZONE_ID"
+              data-sdk="show_INPAGE_ZONE_ID"></script>
+      -->
+    </div>
+
   </div>
 
   <script>
     // Rewarded Interstitial
     function rewardedInterstitial() {
       show_10349717().then(() => {
-        alert("✅ Ad watched successfully!");
+        alert("✅ Ad completed successfully!");
       }).catch(() => {
-        alert("❌ Ad not available, try again.");
+        alert("❌ Ad not available. Try again later.");
       });
     }
 
@@ -93,7 +150,7 @@
       show_10349717('pop').then(() => {
         alert("🎉 Reward completed!");
       }).catch(() => {
-        alert("❌ Failed to load ad.");
+        alert("❌ Ad failed to load.");
       });
     }
   </script>
