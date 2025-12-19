@@ -3,17 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Watch Ad</title>
-
   <!-- Monetag verification -->
   <meta name="monetag" content="c418652733772764949f61353e354b6a">
-
   <!-- Monetag SDK (Rewarded Interstitial) -->
   <script src="//libtl.com/sdk.js"
           data-zone="10349717"
           data-sdk="show_10349717"></script>
-
   <style>
     body {
       margin: 0;
@@ -23,7 +19,6 @@
       justify-content: center;
       align-items: center;
     }
-
     button {
       padding: 16px 40px;
       font-size: 18px;
@@ -33,22 +28,25 @@
       background: #6366f1;
       color: #ffffff;
     }
-
     button:active {
       opacity: 0.9;
     }
   </style>
 </head>
-
 <body>
-
   <button onclick="watchAd()">🎬 Watch Ad</button>
 
   <script>
     function watchAd() {
       show_10349717().catch(() => {});
     }
-  </script>
 
+    // পেজ লোড হওয়ার পর অটোমেটিক অ্যাড দেখাবে
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        watchAd();
+      }, 1000); // 500ms ডিলে — SDK লোড হওয়ার জন্য
+    });
+  </script>
 </body>
 </html>
