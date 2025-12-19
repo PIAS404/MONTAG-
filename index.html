@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Earn by Watching Ads</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Monetag SDK -->
+  <script src='//libtl.com/sdk.js'
+          data-zone='10349717'
+          data-sdk='show_10349717'></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #ffffff;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 10px;
+    }
+    button, a.direct-btn {
+      width: 100%;
+      max-width: 320px;
+      padding: 15px;
+      margin: 12px auto;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      color: #fff;
+    }
+    .btn-interstitial {
+      background: #6366f1;
+    }
+    .btn-popup {
+      background: #f59e0b;
+    }
+    .btn-direct {
+      background: #22c55e;
+    }
+    .note {
+      font-size: 13px;
+      opacity: 0.8;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>🎁 Earn Options</h2>
+  <p>Click a button to continue</p>
+
+  <!-- Rewarded Interstitial -->
+  <button class="btn-interstitial" onclick="rewardedInterstitial()">
+    🎬 Watch Ad (Rewarded Interstitial)
+  </button>
+
+  <!-- Rewarded Popup -->
+  <button class="btn-popup" onclick="rewardedPopup()">
+    ⚡ Quick Reward (Popup)
+  </button>
+
+  <!-- Direct Link -->
+  <a class="direct-btn btn-direct"
+     href="https://otieu.com/4/8731128"
+     target="_blank">
+    🔗 Open Offer (Direct Link)
+  </a>
+
+  <div class="note">
+    Ads or links open only after your click ✔️
+  </div>
+
+  <script>
+    // Rewarded Interstitial
+    function rewardedInterstitial() {
+      show_10349717().then(() => {
+        alert("✅ Ad watched successfully!");
+      }).catch(() => {
+        alert("❌ Ad not available, try again.");
+      });
+    }
+
+    // Rewarded Popup
+    function rewardedPopup() {
+      show_10349717('pop').then(() => {
+        alert("🎉 Reward completed!");
+      }).catch(() => {
+        alert("❌ Failed to load ad.");
+      });
+    }
+  </script>
+
+</body>
+</html>
