@@ -2,38 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Blank Ad Page</title>
+  <title>Blank Rewarded Ad Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ✅ Google Analytics (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPS21TF10Q"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-RPS21TF10Q');
+  <!-- Monetag Verification (থাকলে বসাও) -->
+  <meta name="monetag" content="YOUR_MONETAG_VERIFICATION_CODE">
+
+  <!-- Monetag Rewarded Interstitial SDK -->
+  <script src='//libtl.com/sdk.js'
+          data-zone='10349717'
+          data-sdk='show_10349717'>
   </script>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     html, body {
       margin: 0;
       padding: 0;
+      width: 100%;
       height: 100%;
       background: #000;
+      overflow: hidden;
     }
+  </style>
+</head>
 
-    body {
-      display: flex;
-      flex-direction: column;
+<body>
+
+<script>
+  // Page load হলেই ad show হবে
+  window.onload = function () {
+    if (typeof show_10349717 === "function") {
+      show_10349717().then(() => {
+        // nothing here
+      });
     }
+  };
 
-    /* 🔝 TOP 468x60 */
-    .top {
-      width: 100%;
+  // 40 second পর পর auto refresh
+  setInterval(function () {
+    location.reload();
+  }, 40000); // 40,000 ms = 40 sec
+</script>
+
+</body>
+</html>
       display: flex;
       justify-content: center;
       padding-top: 6px;
